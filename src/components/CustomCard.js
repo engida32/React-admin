@@ -4,15 +4,16 @@ import LabelImportantIcon from "@mui/icons-material/LabelImportant";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import DownloadDoneIcon from "@mui/icons-material/DownloadDone";
 
-export const CustomCard = ({ icon, stat, label }) => {
+export const CustomCard = ({ icon, stat, label, total }) => {
   return (
     <Card
-      style={{
+      sx={{
         background: "primary",
-        color: "primary.contrastText",
+        color: "text.primary",
         width: 300,
         height: 150,
-        margin: 2,
+        boxShadow:
+          "0px 2px 4px rgba(0, 0, 0.5, 3.25), 0px 4px 8px rgba(0, 0, 0, 0.15), 0px 8px 16px rgba(0, 0, 0, 0.1), 0px 16px 32px rgba(0, 0, 0, 0.05)",
       }}
     >
       <CardContent>
@@ -53,7 +54,7 @@ export const CustomCard = ({ icon, stat, label }) => {
           }}
         />
         <Typography variant="body2" component="p">
-          {stat}
+          {total}
         </Typography>
       </Box>
     </Card>

@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader } from "@mui/material";
+import { Card, CardContent, CardHeader, Typography } from "@mui/material";
 import React from "react";
 import {
   List,
@@ -48,6 +48,9 @@ export const CommentList = (props) => {
 
   return (
     <List {...props} perPage={10}>
+      <Typography align="center" variant="h6">
+        Comments
+      </Typography>
       <Datagrid classes={{ row: classes.row }}>
         <ReferenceField source="postId" reference="posts">
           <TextField source="title" />
@@ -81,13 +84,10 @@ export const PostList = (props) => {
   const classes = useStyles();
 
   return (
-    <List
-      {...props}
-      perPage={10}
-      sx={{
-        my: 2,
-      }}
-    >
+    <List {...props} perPage={10}>
+      <Typography align="center" variant="h6">
+        Posts
+      </Typography>
       <Datagrid classes={{ row: classes.row }}>
         <TextField source="id" />
         <TextField source="title" />

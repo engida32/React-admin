@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { Admin, Resource, Layout, AppBar } from "react-admin";
 import "./App.css";
 
 import CustomComponent from "./components/customComponent";
-import { defaultTheme } from "react-admin";
 import CustomAppBar from "./components/Appbar";
 import { CommentList, PostList } from "./components/ListComponent";
 import { Box } from "@mui/material";
@@ -15,14 +14,6 @@ import { comments, posts } from "./data";
 import { theme } from "./theme";
 
 const App = () => {
-  // const theme = {
-  //   ...defaultTheme,
-  //   palette: {
-  //     mode: "dark",
-  //     ...colorPalette,
-  //   },
-  // };
-
   const dataProvider = {
     getList: (resource, params) => {
       switch (resource) {
@@ -54,9 +45,9 @@ const App = () => {
         open={true}
         initialState={initialState}
       >
+        <Resource name="Cards" list={CustomComponent} icon={PixIcon} />
         <Resource name="posts" list={PostList} icon={BookIcon} />
         <Resource name="comments" list={CommentList} icon={ModeCommentIcon} />
-        <Resource name="custom" list={CustomComponent} icon={PixIcon} />
       </Admin>
     </Box>
   );
