@@ -108,23 +108,3 @@ export const PostList = (props) => {
     </List>
   );
 };
-
-// export const CommentList = (props) => (
-//   <List {...props} perPage={10}>
-//     <Card>
-//       <Datagrid>
-//         <ReferenceField source="postId" reference="posts">
-//           <TextField source="title" />
-//         </ReferenceField>
-//         <TextField source="name" />
-//         <TextField source="email" />
-//         <TextField source="body" />
-//         <EditButton />
-//         <DeleteButton />
-//       </Datagrid>
-//       <CardContent>
-//         <TextField source="id" />
-//       </CardContent>
-//     </Card>
-//   </List>
-// );
