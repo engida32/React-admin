@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  Box,
-  Card,
-  CardContent,
-  Icon,
-  IconButton,
-  Typography,
-} from "@mui/material";
+import { Box, Card, CardContent, IconButton, Typography } from "@mui/material";
 import LabelImportantIcon from "@mui/icons-material/LabelImportant";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import DownloadDoneIcon from "@mui/icons-material/DownloadDone";

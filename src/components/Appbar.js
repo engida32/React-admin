@@ -5,16 +5,17 @@ import {
   Box,
   Checkbox,
   FormControl,
+  FormLabel,
   IconButton,
   MenuItem,
   Select,
   Toolbar,
+  Tooltip,
   Typography,
 } from "@mui/material";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
-
 import { makeStyles } from "@mui/styles";
-import { defaultTheme, useTheme } from "react-admin";
+import { Sidebar, TitlePortal, defaultTheme, useTheme } from "react-admin";
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -81,63 +82,101 @@ const CustomAppBar = ({ toggleTheme }) => {
     <AppBar position="fixed">
       <Toolbar>
         <Box display="flex" alignItems="center " flex={1}>
-          <Typography variant="h6" className={classes.title}>
+          <Typography
+            variant="h6"
+            className={classes.title}
+            // onClick={handleClick}
+          >
             My App
           </Typography>
           <Box flex={2}>
-            <FormControl>
-              <Select
-                className={classes.select}
-                defaultValue={"option 1"}
-                displayEmpty
-              >
-                <MenuItem value="option 1" disabled>
-                  Objective
-                </MenuItem>
-                <MenuItem value={"Option 1"}>Option 1</MenuItem>
-                <MenuItem value={"Option 2"}>Option 2</MenuItem>
-                <MenuItem value={"Option 3"}>Option 3</MenuItem>
-              </Select>
-            </FormControl>
-            <FormControl
+            <Box
               sx={{
-                border: `1px solid secondary.main`,
-                borderRadius: "5px",
+                border: `1px solid green`,
+                display: "flex",
+                justifyContent: "space-around",
               }}
             >
-              <Select className={classes.select} defaultValue={"Option 2"}>
-                <MenuItem value="Option 1" disabled>
-                  Model
-                </MenuItem>
-                <MenuItem value={"Option 1"}>Option 1</MenuItem>
-                <MenuItem value={"Option 2"}>Option 2</MenuItem>
-                <MenuItem value={"Option 3"}>Option 3</MenuItem>
-              </Select>
-            </FormControl>
+              <FormControl
+                sx={{
+                  display: "flex",
+                }}
+              >
+                <FormLabel>Select Objective </FormLabel>
+                <Select
+                  className={classes.select}
+                  defaultValue={"option 1"}
+                  variant="outlined"
+                >
+                  <MenuItem value="option 1" disabled>
+                    Search by Objective
+                  </MenuItem>
+                  <MenuItem value={"Option 1"}>Option 1</MenuItem>
+                  <MenuItem value={"Option 2"}>Option 2</MenuItem>
+                  <MenuItem value={"Option 3"}>Option 3</MenuItem>
+                </Select>
+              </FormControl>
+              <FormControl
+                sx={{
+                  display: "flex",
+                }}
+              >
+                <FormLabel>Select Model </FormLabel>
+                <Select
+                  className={classes.select}
+                  defaultValue={"option 1"}
+                  variant="outlined"
+                >
+                  <MenuItem value="option 1" disabled>
+                    Search by Model
+                  </MenuItem>
+                  <MenuItem value={"Option 1"}>Option 1</MenuItem>
+                  <MenuItem value={"Option 2"}>Option 2</MenuItem>
+                  <MenuItem value={"Option 3"}>Option 3</MenuItem>
+                </Select>
+              </FormControl>
+            </Box>
           </Box>
           <Box
             sx={{
-              marginLeft: "auto",
-              marginRight: "auto",
               display: "flex",
-              alignItems: "center",
+              flexDirection: "column",
+              border: `1px solid green`,
             }}
           >
-            <Typography variant="subtitle1" className={classes.statusLabel}>
+            <Typography
+              align="center"
+              variant="h6"
+              className={classes.statusLabel}
+            >
               Status
             </Typography>
-            <Checkbox
-              className={`${classes.checkbox} ${classes.inProgress}`}
-              defaultChecked
+            <Box
+              sx={{
+                marginLeft: "auto",
+                marginRight: "auto",
+                display: "flex",
+                alignItems: "center",
+              }}
             >
-              In Progress
-            </Checkbox>
-            <Checkbox className={`${classes.checkbox} ${classes.cancelled}`}>
-              Cancelled
-            </Checkbox>
-            <Checkbox className={`${classes.checkbox} ${classes.ended}`}>
-              Ended
-            </Checkbox>
+              <Tooltip title="In Progress">
+                <Checkbox
+                  className={`${classes.checkbox} ${classes.inProgress}`}
+                  defaultChecked
+                  color="secondary"
+                />
+              </Tooltip>
+
+              <Tooltip title="Cancelled">
+                <Checkbox
+                  color="error"
+                  className={`${classes.checkbox} ${classes.cancelled}`}
+                />
+              </Tooltip>
+              <Tooltip title="Ended">
+                <Checkbox className={`${classes.checkbox} ${classes.ended}`} />
+              </Tooltip>
+            </Box>
           </Box>
         </Box>
         <IconButton
